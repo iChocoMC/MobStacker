@@ -1,0 +1,8 @@
+radius-method: # Works better than chunk method
+  enable: true
+  x: 10
+  y: 5
+  z: 10
+
+# Alternative to radius-method
+enable-chunk-method: false
