@@ -3,18 +3,19 @@ package mobstacker.methods;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 
+import mobstacker.utils.IntegerUtil;
 import mobstacker.utils.MethodsUtil;
 
 public class ChunkMethod extends MethodsUtil {
 
     @Override
-    public void check(Entity entity) {
+    public void check(Entity entity, String customName) {
 
         int amount = 1;
         EntityType type = entity.getType();
 
-        if (entity.getCustomName() != null) {
-            amount = Integer.parseInt(entity.getCustomName());
+        if (customName != null) {
+            amount = Integer.parseInt(customName);
         }
 
         for (Entity otherEntity : entity.getLocation().getChunk().getEntities()) {
@@ -23,13 +24,13 @@ public class ChunkMethod extends MethodsUtil {
                 continue;
             }
 
+            otherEntity.remove();
+
             if (otherEntity.getCustomName() == null) {
                 amount++;
-                otherEntity.remove();
                 continue;
             }
-            amount+= Integer.parseInt(otherEntity.getCustomName());
-            otherEntity.remove();
+            amount+= IntegerUtil.parseInt(otherEntity.getCustomName());
         }
 
         if (amount != 1) {

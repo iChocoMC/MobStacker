@@ -1,11 +1,15 @@
 package mobstacker.listeners;
 
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
+import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
 
 import org.bukkit.inventory.ItemStack;
+
+import mobstacker.utils.IntegerUtil;
+
 import org.bukkit.Material;
-import org.bukkit.event.*;
 
 public class EntityRename implements Listener {
     
@@ -18,19 +22,8 @@ public class EntityRename implements Listener {
             return;
         }
 
-        if (isInteger(item.getItemMeta().getDisplayName())) {
+        if (IntegerUtil.isInteger(item.getItemMeta().getDisplayName())) {
             event.setCancelled(true);
         }
-    }
-
-    private boolean isInteger(String name) {
-        boolean check = false;
-        try {
-            Integer.parseInt(name);
-            check = true;
-        } catch (NumberFormatException e) {
-            check = false;
-        }
-        return check;
     }
 }

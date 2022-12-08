@@ -7,6 +7,8 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDeathEvent;
 
+import mobstacker.utils.IntegerUtil;
+
 public class KillCreature implements Listener {
     
     @EventHandler
@@ -20,7 +22,7 @@ public class KillCreature implements Listener {
             return;
         }
 
-        int amount = Integer.parseInt(entity.getCustomName()) - 1;
+        int amount = IntegerUtil.parseInt(entity.getCustomName()) - 1;
 
         if (amount > 0) {
             Entity newEntity = entity.getWorld().spawnEntity(entity.getLocation(), entity.getType());
