@@ -24,13 +24,13 @@ public class ChunkMethod extends MethodsUtil {
                 continue;
             }
 
-            otherEntity.remove();
-
             if (otherEntity.getCustomName() == null) {
                 amount++;
+                otherEntity.remove();
                 continue;
             }
             amount+= IntegerUtil.parseInt(otherEntity.getCustomName());
+            otherEntity.remove();
         }
 
         if (amount != 1) {
