@@ -1,0 +1,5 @@
+name: MobStacker
+description: A basic mobstacker plugin
+author: iChocoMC_
+main: mobstacker.MobStacker
+version: 1.0
