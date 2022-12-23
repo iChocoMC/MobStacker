@@ -2,4 +2,8 @@ name: MobStacker
 description: A basic mobstacker plugin
 author: iChocoMC_
 main: mobstacker.MobStacker
-version: 3.0
+version: 5.0
+
+commands:
+  mobstacker:
+    description: "Send all subcommands of /mobstacker - stats and reload"

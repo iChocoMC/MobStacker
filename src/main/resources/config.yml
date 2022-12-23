@@ -4,5 +4,8 @@ radius-method: # Works better than chunk method
   y: 10
   z: 20
 
-# Alternative to radius-method
-enable-chunk-method: false
+  enable-chunk-method: false # Alternative to radius-method
+
+#All entities: https://helpch.at/docs/1.8/index.html?org/bukkit/entity/EntityType.html
+blacklist-entities:
+  - "VILLAGER"

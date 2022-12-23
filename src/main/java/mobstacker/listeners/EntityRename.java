@@ -1,7 +1,6 @@
 package mobstacker.listeners;
 
 import org.bukkit.event.EventHandler;
-import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
 
@@ -13,7 +12,7 @@ import org.bukkit.Material;
 
 public class EntityRename implements Listener {
     
-    @EventHandler(priority = EventPriority.LOWEST)
+    @EventHandler
     public void rename(PlayerInteractEntityEvent event) {
 
         ItemStack item = event.getPlayer().getItemInHand();
@@ -22,7 +21,7 @@ public class EntityRename implements Listener {
             return;
         }
 
-        if (IntegerUtil.isInteger(item.getItemMeta().getDisplayName())) {
+        if (IntegerUtil.parseInt(item.getItemMeta().getDisplayName()) != 1) {
             event.setCancelled(true);
         }
     }

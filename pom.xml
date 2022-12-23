@@ -1,40 +1,47 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     
-    <groupId>mobstacker</groupId>
+    <!-- Project information -->
+    <groupId>MobStacker</groupId>
     <artifactId>MobStacker</artifactId>
     <packaging>jar</packaging>
 
+    <!-- Plugin Information -->
     <name>MobStacker</name>
-    <description>A basic mobstacker plugin</description>
-    <version>3.0</version>
-
+    <description>A basic MobStacker plugin </description>
+    <version>5.0</version>
+    
     <properties>
-        <author>iChocoMC_</author>
-        <mainClass>mobstacker.MobStacker</mainClass>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+   <!-- External repositories -->
     <repositories>
         <repository>
-            <id>spigot-repo</id>
-            <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
+            <id>nms-repo</id>
+            <url>https://maven.elmakers.com/repository/</url>
         </repository>
     </repositories>
 
+    <!-- Dependencies imports -->
     <dependencies>
         <dependency>
-            <groupId>org.spigotmc</groupId>
-            <artifactId>spigot-api</artifactId>
+            <groupId>org.bukkit</groupId>
+            <artifactId>craftbukkit</artifactId>
             <version>1.8.8-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
 
+    <!-- Build settings -->
     <build>
-        <finalName>${artifactId}</finalName>
+        <!-- Name of your compiled artifact -->
+        <finalName>${project.artifactId}</finalName>
+        <!-- Directory of .java files -->
         <sourceDirectory>src/main/java</sourceDirectory>
+        <!-- Clean old builds and install dependencies before compile -->
         <defaultGoal>clean install</defaultGoal>
+        <!-- Package files inside resource directory in to the jar -->
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
@@ -45,7 +52,9 @@
             </resource>
         </resources>
 
+        <!-- Compilation settings starts here -->
         <plugins>
+            <!-- Compile with java 8 -->
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
