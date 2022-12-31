@@ -1,4 +1,7 @@
-# MobStacker
-EN  You can use the code for personal or commercial proyects
+# MobStacker | A basic solution for entities
 
-ES  Puedes usar el codigo para proyectos personales o comerciales
+# EN:
+  You can use the code for personal or commercial proyects
+
+# ES:
+  Puedes usar el codigo para proyectos personales o comerciales
