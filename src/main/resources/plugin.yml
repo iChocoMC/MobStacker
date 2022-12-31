@@ -2,7 +2,7 @@ name: MobStacker
 description: A basic mobstacker plugin
 author: iChocoMC_
 main: mobstacker.MobStacker
-version: 5.0
+version: 6.0
 
 commands:
   mobstacker:

@@ -9,7 +9,7 @@
     <!-- Plugin Information -->
     <name>MobStacker</name>
     <description>A basic MobStacker plugin </description>
-    <version>5.0</version>
+    <version>6.0</version>
     
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -18,7 +18,7 @@
    <!-- External repositories -->
     <repositories>
         <repository>
-            <id>nms-repo</id>
+            <id>minecraft-repo</id>
             <url>https://maven.elmakers.com/repository/</url>
         </repository>
     </repositories>
@@ -27,7 +27,7 @@
     <dependencies>
         <dependency>
             <groupId>org.bukkit</groupId>
-            <artifactId>craftbukkit</artifactId>
+            <artifactId>bukkit</artifactId>
             <version>1.8.8-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>

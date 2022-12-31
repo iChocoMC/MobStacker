@@ -1,11 +1,19 @@
-radius-method: # Works better than chunk method
-  enable: true
+features:
+  blacklist-entities: true
+  blacklist-worlds: false
+
+methods:
+  radius-method: true
+  chunk-method: false
+
+radius-method:
   x: 20
   y: 10
   z: 20
 
-  enable-chunk-method: false # Alternative to radius-method
-
 #All entities: https://helpch.at/docs/1.8/index.html?org/bukkit/entity/EntityType.html
 blacklist-entities:
   - "VILLAGER"
+
+blacklist-worlds:
+  - "world"

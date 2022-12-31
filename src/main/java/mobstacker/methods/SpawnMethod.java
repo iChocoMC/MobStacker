@@ -1,23 +1,24 @@
-package mobstacker.utils;
+package mobstacker.methods;
 
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Entity;
 
 import mobstacker.MobStacker;
-import mobstacker.methods.*;
+import mobstacker.methods.types.ChunkMethod;
+import mobstacker.methods.types.RadiusMethod;
 
-public abstract class MethodsUtil {
+public abstract class SpawnMethod {
     
-    private static MethodsUtil method;
+    private static SpawnMethod method;
 
-    public static void startUtil(MobStacker plugin, FileConfiguration config) {
+    public static void start(MobStacker plugin, FileConfiguration config) {
 
-        if (config.getBoolean("radius-method.enable")) {
+        if (config.getBoolean("methods.radius-method")) {
             method = new RadiusMethod(config);
             return;
         } 
 
-        if (config.getBoolean("radius-method.enable")) {
+        if (config.getBoolean("methods.chunk-method")) {
             method = new ChunkMethod();
             System.out.println("Method: ChunkMethod. Please enable RadiusMethod for better experience");
             return;

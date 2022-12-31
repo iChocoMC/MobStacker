@@ -1,38 +1,39 @@
 package mobstacker.listeners;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.LinkedList;
 
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Entity;
-import org.bukkit.entity.EntityType;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.CreatureSpawnEvent;
 
-import mobstacker.utils.MethodsUtil;
+import mobstacker.features.Feature;
+import mobstacker.features.blacklist.EntitiesFeature;
+import mobstacker.features.blacklist.WorldsFeature;
+import mobstacker.methods.SpawnMethod;
 
 public class CreatureSpawn implements Listener {
 
-    private final Set<EntityType> blackListTypes = new HashSet<>();
+    private final LinkedList<Feature> features = new LinkedList<>();
 
     public CreatureSpawn(FileConfiguration config) {
-        for (String string : config.getStringList("blacklist-entities")) {
-            try {
-                blackListTypes.add(EntityType.valueOf(string));                
-            } catch (Exception e) {
-                System.err.println("The entity type: " + string + " doesn't exit");
-                continue;
-            }
+        if (config.getBoolean("features.blacklist-entities")) {
+            features.add(new EntitiesFeature(config));
+        }
+        if (config.getBoolean("features.blacklist-worlds")) {
+            features.add(new WorldsFeature(config));
         }
     }
 
     @EventHandler
     public void spawn(CreatureSpawnEvent event) {
         Entity entity = event.getEntity();
-        if (blackListTypes.contains(entity.getType())) {
-            return;
+        for (Feature feature : features) {
+            if (feature.execute(entity)) {
+                return;
+            }
         }
-        MethodsUtil.spawn(entity);
+        SpawnMethod.spawn(entity);
     }
 }

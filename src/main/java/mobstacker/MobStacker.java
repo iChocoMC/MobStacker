@@ -5,7 +5,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import mobstacker.commands.MobStackerCommand;
 import mobstacker.listeners.*;
-import mobstacker.utils.MethodsUtil;
+import mobstacker.methods.SpawnMethod;
 
 public class MobStacker extends JavaPlugin {
     
@@ -14,7 +14,7 @@ public class MobStacker extends JavaPlugin {
 
         this.saveDefaultConfig();
 
-        MethodsUtil.startUtil(this, this.getConfig());
+        SpawnMethod.start(this, this.getConfig());
 
         PluginManager pluginManager = this.getServer().getPluginManager();
         pluginManager.registerEvents(new CreatureSpawn(this.getConfig()), this);
