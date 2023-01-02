@@ -1,4 +1,4 @@
-package mobstacker.features;
+package mobstacker.interfaces;
 
 import org.bukkit.entity.Entity;
 

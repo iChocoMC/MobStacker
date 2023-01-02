@@ -1,4 +1,4 @@
-package mobstacker.features.blacklist;
+package mobstacker.features;
 
 import java.util.HashSet;
 import java.util.List;
@@ -8,7 +8,7 @@ import org.bukkit.World;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Entity;
 
-import mobstacker.features.Feature;
+import mobstacker.interfaces.Feature;
 
 public class WorldsFeature implements Feature {
 

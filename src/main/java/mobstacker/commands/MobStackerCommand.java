@@ -5,10 +5,10 @@ import org.bukkit.World;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Entity;
+import org.bukkit.entity.Player;
 
 import mobstacker.MobStacker;
-import mobstacker.utils.IntegerUtil;
+import mobstacker.api.MobStackerAPI;
 
 public class MobStackerCommand implements CommandExecutor {
     
@@ -26,54 +26,63 @@ public class MobStackerCommand implements CommandExecutor {
             return true;
         }
         
-        if (args.length != 1) {
+        if (args.length < 1) {
             sender.sendMessage(correctUsage());
             return true;
         }
-        switch (args[0]) {
+
+        switch (args[0].toLowerCase()) {
             case "reload":
                 plugin.reloadConfiguration();
                 sender.sendMessage("§aPlugin reloaded! §7| §fiChocoMC_");
             break;
 
             case "stats":
-                sender.sendMessage(stackedEntities());
+                MobStackerAPI.statsEntities(sender);
+            break;
+
+            case "deleteall":
+                deleteAllEntities(args, sender);
             break;
 
             default:
                 sender.sendMessage(correctUsage());
-        }        
+        }
         return false;
     }
 
-    public static String correctUsage() {
+    private String correctUsage() {
         return 
             "\n " + "§aMobStacker §7| §fiChocoMC_" +
             "\n" +
             "\n     §a/mobstacker:" +
             "\n         §estats §7| §fGet all stacked mobs in all worlds" +
-            "\n         §ereload §7| §fReload config.yml";
+            "\n         §ereload §7| §fReload config.yml" +
+            "\n         §edeleteall §7| §fDelete all entities in world";
     }
 
-    public static String stackedEntities() {
-        String statsWorld = "§eStacked Entitis §7- §a§lWorlds§7:";
+    private void deleteAllEntities(String[] args, CommandSender sender) {
 
-        for (World world : Bukkit.getWorlds()) {
-            int stackedEntitis = 0;
+        World world;
 
-            for (Entity entity : world.getEntities()) {
-            
-                int amount = IntegerUtil.parseInt(entity.getCustomName());
- 
-                if (amount == 1) {
-                    continue;
-                }
+        if (!(sender instanceof Player)) {
 
-                stackedEntitis += amount;
+            if (args.length != 3) {
+                sender.sendMessage("§fFormat: §a/mobstacker deleteall §e(world)");
+                return;
             }
 
-            statsWorld = statsWorld + ("\n §a" + world.getName() + "§7: §e" + stackedEntitis);
+            world = Bukkit.getWorld(args[2]);
+
+            if (world == null) {
+                sender.sendMessage("The world " + args[2] + " don't exist");
+                return;
+            }
+
+        } else {
+            Player player = (Player)sender;
+            world = player.getWorld();
         }
-        return statsWorld;
+        MobStackerAPI.deleteAllEntities(sender, world);
     }
 }

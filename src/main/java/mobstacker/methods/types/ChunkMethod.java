@@ -3,10 +3,10 @@ package mobstacker.methods.types;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 
-import mobstacker.methods.SpawnMethod;
+import mobstacker.interfaces.SpawnMethod;
 import mobstacker.utils.IntegerUtil;
 
-public class ChunkMethod extends SpawnMethod {
+public class ChunkMethod implements SpawnMethod {
 
     @Override
     public void check(Entity entity) {

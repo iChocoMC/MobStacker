@@ -4,14 +4,15 @@ import java.util.LinkedList;
 
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Entity;
+
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.CreatureSpawnEvent;
 
-import mobstacker.features.Feature;
-import mobstacker.features.blacklist.EntitiesFeature;
-import mobstacker.features.blacklist.WorldsFeature;
-import mobstacker.methods.SpawnMethod;
+import mobstacker.features.EntitiesFeature;
+import mobstacker.features.WorldsFeature;
+import mobstacker.interfaces.Feature;
+import mobstacker.methods.Methods;
 
 public class CreatureSpawn implements Listener {
 
@@ -34,6 +35,6 @@ public class CreatureSpawn implements Listener {
                 return;
             }
         }
-        SpawnMethod.spawn(entity);
+        Methods.spawn(entity);
     }
 }

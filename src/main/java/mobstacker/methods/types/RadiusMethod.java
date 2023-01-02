@@ -4,10 +4,10 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 
-import mobstacker.methods.SpawnMethod;
+import mobstacker.interfaces.SpawnMethod;
 import mobstacker.utils.IntegerUtil;
 
-public class RadiusMethod extends SpawnMethod {
+public class RadiusMethod implements SpawnMethod {
 
     private final int x, y, z;
 

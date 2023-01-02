@@ -9,8 +9,8 @@
     <!-- Plugin Information -->
     <name>MobStacker</name>
     <description>A basic MobStacker plugin </description>
-    <version>6.0</version>
-    
+    <version>7.0</version>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
@@ -18,7 +18,7 @@
    <!-- External repositories -->
     <repositories>
         <repository>
-            <id>minecraft-repo</id>
+            <id>spigot-repo</id>
             <url>https://maven.elmakers.com/repository/</url>
         </repository>
     </repositories>
@@ -26,8 +26,8 @@
     <!-- Dependencies imports -->
     <dependencies>
         <dependency>
-            <groupId>org.bukkit</groupId>
-            <artifactId>bukkit</artifactId>
+            <groupId>org.spigotmc</groupId>
+            <artifactId>spigot-api</artifactId>
             <version>1.8.8-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
@@ -36,7 +36,7 @@
     <!-- Build settings -->
     <build>
         <!-- Name of your compiled artifact -->
-        <finalName>${project.artifactId}</finalName>
+        <finalName>${project.artifactId}-${project.version}</finalName>
         <!-- Directory of .java files -->
         <sourceDirectory>src/main/java</sourceDirectory>
         <!-- Clean old builds and install dependencies before compile -->
