@@ -1,5 +1,7 @@
-# MobStacker
-  Puedes usar el codigo para cualquier proyecto propio.
-  
-  Si quieres añadir un nuevo metodo, crea una clase en el package "mobstacker.methods"
-  y haz que esta herede de MethodsUtil.
+# MobStacker | A basic solution for entities
+
+# EN:
+  You can use the code for personal or commercial proyects
+
+# ES:
+  Puedes usar el codigo para proyectos personales o comerciales
