@@ -6,6 +6,7 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Entity;
 
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.CreatureSpawnEvent;
 
@@ -27,7 +28,7 @@ public class CreatureSpawn implements Listener {
         }
     }
 
-    @EventHandler
+    @EventHandler(ignoreCancelled = false, priority = EventPriority.HIGH)
     public void spawn(CreatureSpawnEvent event) {
         Entity entity = event.getEntity();
         for (Feature feature : features) {
