@@ -11,7 +11,10 @@ radius-method:
   y: 10
   z: 20
 
-#All entities: https://helpch.at/docs/1.8/index.html?org/bukkit/entity/EntityType.html
+# Performance for long term, disable if you have problems with entities
+remove-entities-on-unload-chunk: true
+
+# All entities: https://helpch.at/docs/1.8/index.html?org/bukkit/entity/EntityType.html
 blacklist-entities:
   - "VILLAGER"
 

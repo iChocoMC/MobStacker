@@ -22,11 +22,7 @@ public class MobStackerAPI {
                 entity.remove();
             }
         }
-        if (sender == null) {
-            System.out.println("Entities deleted: §e" + amount);
-        } else {
-            sender.sendMessage("Entities deleted: §e" + amount);
-        }
+        sender.sendMessage("Entities deleted: §e" + amount);
     }
 
     /*

@@ -17,9 +17,14 @@ public class MobStacker extends JavaPlugin {
         Methods.start(this);
 
         PluginManager pluginManager = this.getServer().getPluginManager();
+
         pluginManager.registerEvents(new CreatureSpawn(this.getConfig()), this);
         pluginManager.registerEvents(new EntityRename(), this);
         pluginManager.registerEvents(new KillCreature(), this);
+
+        if (this.getConfig().getBoolean("remove-entities-on-unload-chunk")) {
+            pluginManager.registerEvents(new ChunkUnload(), this);
+        }
 
         this.getCommand("mobstacker").setExecutor(new MobStackerCommand(this));
     }

@@ -20,8 +20,16 @@ public class KillCreature implements Listener {
 
         int amount = IntegerUtil.parseInt(entity.getCustomName()) - 1;
 
-        if (amount >= 1) {
-            entity.getWorld().spawn(entity.getLocation(), entity.getClass()).setCustomName("" + amount);
+        if (amount < 1) {
+            return;
         }
+
+        entity = entity.getWorld().spawn(entity.getLocation(), entity.getClass());
+
+        if (amount != 1) {
+            entity.setCustomName(""+amount);
+            return;
+        }
+        entity.setCustomName(null);
     }
 }

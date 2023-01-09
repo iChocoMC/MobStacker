@@ -19,7 +19,9 @@ public class WorldsFeature implements Feature {
         blacklist = new HashSet<>(list.size()+1);
 
         for (String string : list) {
+
             World world = Bukkit.getWorld(string);
+
             if (world == null) {
                 System.err.println("The world: " + string + " don't exit");
                 continue;
