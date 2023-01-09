@@ -3,9 +3,11 @@ package mobstacker.api;
 import org.bukkit.Bukkit;
 import org.bukkit.World;
 import org.bukkit.command.CommandSender;
+
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 
+import mobstacker.methods.Methods;
 import mobstacker.utils.IntegerUtil;
 
 public class MobStackerAPI {
@@ -44,6 +46,14 @@ public class MobStackerAPI {
             }
         }
         sender.sendMessage("Entities deleted: §e" + amount);
+    }
+
+
+    /*
+     * Stack a entity
+     */
+    public static void stackEntity(Entity entity) {
+        Methods.spawn(entity);
     }
 
     /*

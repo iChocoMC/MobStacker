@@ -33,8 +33,4 @@ public class MobStacker extends JavaPlugin {
         this.reloadConfig();
         this.onEnable();    
     }
-
-    public static MobStacker getInstance() {
-        return JavaPlugin.getPlugin(MobStacker.class);
-    }
 }

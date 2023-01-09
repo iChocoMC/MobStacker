@@ -42,11 +42,11 @@ public class MobStackerCommand implements CommandExecutor {
             break;
 
             case "deleteall":
-                deleteAllEntities(args, sender);
+                this.deleteAllEntities(args, sender);
             break;
 
             default:
-                sender.sendMessage(correctUsage());
+                sender.sendMessage(this.correctUsage());
         }
         return false;
     }
