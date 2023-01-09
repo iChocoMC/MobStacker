@@ -41,6 +41,10 @@ public class MobStackerCommand implements CommandExecutor {
                 MobStackerAPI.statsEntities(sender);
             break;
 
+            case "toggle":
+                plugin.setToggle(sender);
+            break;
+
             case "deleteall":
                 this.deleteAllEntities(args, sender);
             break;
@@ -58,6 +62,7 @@ public class MobStackerCommand implements CommandExecutor {
             "\n     §a/mobstacker:" +
             "\n         §estats §7| §fGet all stacked mobs in all worlds" +
             "\n         §ereload §7| §fReload config.yml" +
+            "\n         §etoggle §7| §fDisable or enable mobstack" +
             "\n         §edeleteall §7| §fDelete all entities in world";
     }
 

@@ -1,5 +1,6 @@
 package mobstacker;
 
+import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -8,9 +9,15 @@ import mobstacker.listeners.*;
 import mobstacker.methods.Methods;
 
 public class MobStacker extends JavaPlugin {
-    
+
+    private boolean toggle = true;
+
     @Override
     public void onEnable() {
+
+        if (!toggle) {
+            return;
+        }
 
         this.saveDefaultConfig();
 
@@ -32,5 +39,12 @@ public class MobStacker extends JavaPlugin {
     public void reloadConfiguration() {
         this.reloadConfig();
         this.onEnable();    
+    }
+
+    public void setToggle(CommandSender sender) {
+        toggle = !toggle;
+        sender.sendMessage("The plugin is disable: §a" + toggle);
+        this.getServer().getPluginManager().disablePlugin(this);
+        this.getServer().getPluginManager().enablePlugin(this);
     }
 }

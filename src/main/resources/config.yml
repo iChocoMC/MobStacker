@@ -1,7 +1,6 @@
 features:
   blacklist-entities: true
   blacklist-worlds: false
-  stack-entity-with-customname: true # This maybe cause a problem with entities.
 
 methods:
   radius-method: true
