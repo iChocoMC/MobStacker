@@ -12,10 +12,16 @@ import mobstacker.utils.IntegerUtil;
 
 public class MobStackerAPI {
 
+    private static MobStackerAPI api;
+
+    public MobStackerAPI() {
+        api = this;
+    }
+
     /*
      * Delete all entities in world
      */
-    public static void deleteAllEntities(CommandSender sender, World world) {
+    public void deleteAllEntities(CommandSender sender, World world) {
         int amount = 0;
 
         for (Entity entity : world.getEntities()) {
@@ -30,7 +36,7 @@ public class MobStackerAPI {
     /*
      * Delete all entities with a specified type in world
      */
-    public static void deleteAllEntitiesType(String type, CommandSender sender, World world) {
+    public void deleteAllEntitiesType(String type, CommandSender sender, World world) {
         EntityType entityType = EntityType.valueOf(type);
 
         if (entityType == null) {
@@ -52,14 +58,14 @@ public class MobStackerAPI {
     /*
      * Stack a entity
      */
-    public static void stackEntity(Entity entity) {
+    public void stackEntity(Entity entity) {
         Methods.spawn(entity);
     }
 
     /*
      * Get all stacked entities in all worlds
      */
-    public static void statsEntities(CommandSender sender) {
+    public void statsEntities(CommandSender sender) {
         String statsWorld = "§eStacked Entitis §7- §a§lWorlds§7:";
 
         for (World world : Bukkit.getWorlds()) {
@@ -75,5 +81,9 @@ public class MobStackerAPI {
             statsWorld = statsWorld + ("\n §a" + world.getName() + "§7: §e" + stackedEntitis);
         }
         sender.sendMessage(statsWorld);
+    }
+
+    public static MobStackerAPI getAPI() {
+        return api;
     }
 }

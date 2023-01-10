@@ -23,7 +23,7 @@ public class WorldsFeature implements Feature {
             World world = Bukkit.getWorld(string);
 
             if (world == null) {
-                System.err.println("The world: " + string + " don't exit");
+                Bukkit.getLogger().warning("The world: " + string + " don't exit");
                 continue;
             }
             blacklist.add(world);

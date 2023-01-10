@@ -38,7 +38,7 @@ public class MobStackerCommand implements CommandExecutor {
             break;
 
             case "stats":
-                MobStackerAPI.statsEntities(sender);
+                MobStackerAPI.getAPI().statsEntities(sender);
             break;
 
             case "toggle":
@@ -88,6 +88,6 @@ public class MobStackerCommand implements CommandExecutor {
             Player player = (Player)sender;
             world = player.getWorld();
         }
-        MobStackerAPI.deleteAllEntities(sender, world);
+        MobStackerAPI.getAPI().deleteAllEntities(sender, world);
     }
 }

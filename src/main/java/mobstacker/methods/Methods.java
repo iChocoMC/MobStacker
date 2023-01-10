@@ -1,5 +1,8 @@
 package mobstacker.methods;
 
+import java.util.logging.Level;
+
+import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Entity;
 
@@ -12,7 +15,7 @@ public class Methods {
 
     private static SpawnMethod method;
 
-    public static void start(MobStacker plugin) {
+    public void start(MobStacker plugin) {
 
         FileConfiguration config = plugin.getConfig();
 
@@ -26,7 +29,7 @@ public class Methods {
             method = new ChunkMethod();
             return;
         }
-        System.err.println("Please enable any method in config.yml");
+        Bukkit.getLogger().log(Level.SEVERE, "Please enable any method in config.yml");
         plugin.onDisable();
     }
 

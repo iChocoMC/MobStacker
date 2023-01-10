@@ -3,6 +3,7 @@ package mobstacker.features;
 import java.util.HashSet;
 import java.util.List;
 
+import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
@@ -21,7 +22,7 @@ public class EntitiesFeature implements Feature {
             try {
                 blacklist.add(EntityType.valueOf(string));
             } catch (Exception e) {
-                System.err.println("The entity type: " + string + " don't exit");
+                Bukkit.getLogger().warning("The entity type: " + string + " don't exit");
                 continue;
             }
         }
