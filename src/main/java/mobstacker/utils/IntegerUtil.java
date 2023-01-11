@@ -9,15 +9,14 @@ public class IntegerUtil {
         int amount = name.length();
 
         if (amount == 1) {
-            amount = Character.digit(name.charAt(1),10);
+            amount = Character.digit(name.charAt(0),10);
             return amount != -1 ? amount : 1;
         }
 
-        int i = 0;
         int result = 0;
 
-        while (i < result) {
-            result += Character.digit(name.charAt(i++),10);
+        for (byte i = 0; i < amount; i++) {
+            result += Character.digit(name.charAt(i),10);
             if (result == -1) {
                 return 1;
             }
