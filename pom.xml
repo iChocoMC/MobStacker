@@ -9,7 +9,7 @@
     <!-- Plugin Information -->
     <name>MobStacker</name>
     <description>A basic MobStacker plugin </description>
-    <version>10.0</version>
+    <version>11.0</version>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

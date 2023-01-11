@@ -2,7 +2,6 @@ package mobstacker.listeners;
 
 import org.bukkit.entity.Creature;
 import org.bukkit.entity.Entity;
-
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDeathEvent;
@@ -10,7 +9,7 @@ import org.bukkit.event.entity.EntityDeathEvent;
 import mobstacker.utils.IntegerUtil;
 
 public class KillCreature implements Listener {
-    
+
     @EventHandler
     public void kill(EntityDeathEvent event) {
         Entity entity = event.getEntity();

@@ -48,9 +48,6 @@ public class MobStacker extends JavaPlugin {
         sender.sendMessage("The plugin is enable: §a" + toggle);
 
         this.getServer().getPluginManager().disablePlugin(this);
-
-        if (toggle) {
-            this.getServer().getPluginManager().enablePlugin(this);
-        }
+        this.getServer().getPluginManager().enablePlugin(this);
     }
 }

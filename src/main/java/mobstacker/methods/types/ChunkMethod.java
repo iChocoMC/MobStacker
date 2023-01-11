@@ -13,8 +13,9 @@ public class ChunkMethod implements SpawnMethod {
 
         int amount = 1;
         EntityType type = entity.getType();
+        Entity[] entities = entity.getLocation().getChunk().getEntities();
 
-        for (Entity otherEntity : entity.getLocation().getChunk().getEntities()) {
+        for (Entity otherEntity : entities) {
 
             if (otherEntity.getType() != type) {
                 continue;

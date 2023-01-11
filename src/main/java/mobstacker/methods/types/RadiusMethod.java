@@ -1,5 +1,7 @@
 package mobstacker.methods.types;
 
+import java.util.List;
+
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
@@ -22,8 +24,9 @@ public class RadiusMethod implements SpawnMethod {
 
         int amount = 1;
         EntityType type = entity.getType();
+        List<Entity> entities = entity.getNearbyEntities(x, y, z);
 
-        for (Entity otherEntity : entity.getNearbyEntities(x, y, z)) {
+        for (Entity otherEntity : entities) {
 
             if (otherEntity.getType() != type) {
                 continue;
